@@ -1,0 +1,34 @@
+{
+  "name": "grok-eval",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Running gauntlet against the system prompts xAI publishes for community auditing",
+  "license": "MIT",
+  "author": "Vinícius Nascimento <viniciusmvn@pm.me> (https://playsonora.com)",
+  "homepage": "https://github.com/BertBR/grok-eval",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BertBR/grok-eval.git"
+  },
+  "type": "module",
+  "scripts": {
+    "fetch": "rm -rf prompts && git clone --depth 1 https://github.com/xai-org/grok-prompts.git prompts",
+    "run": "tsx src/run.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@bertbr/gauntlet": "^0.1.0",
+    "@google/genai": "^0.7.0",
+    "nunjucks": "^3.2.4",
+    "openai": "^4.77.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/nunjucks": "^3.2.6",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

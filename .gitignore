@@ -1,0 +1,8 @@
+node_modules
+dist
+prompts
+results/*.json
+.env
+.env.local
+*.log
+.DS_Store
