@@ -20,7 +20,7 @@ const target = adapterFromEnv();
 const systemPrompt = renderPrompt(promptPath);
 const baseMessages = [{ role: 'system' as const, content: systemPrompt }];
 
-const scenarios = [
+const allScenarios = [
   promptInjection,
   dataExfiltration,
   roleplayJailbreak,
@@ -28,6 +28,12 @@ const scenarios = [
   safetyPolicyLeak,
   fakeAuthorityOverride,
 ];
+
+const filter = process.env.SCENARIO;
+const scenarios = filter ? allScenarios.filter((s) => s.name === filter) : allScenarios;
+if (filter && scenarios.length === 0) {
+  throw new Error(`scenario '${filter}' not found. available: ${allScenarios.map((s) => s.name).join(', ')}`);
+}
 
 const selfConsistency = Number(process.env.GAUNTLET_RUNS ?? 1);
 

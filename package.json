@@ -20,7 +20,7 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@bertbr/gauntlet": "^0.1.0",
+    "@bertbr/gauntlet": "^0.1.1",
     "@google/genai": "^0.7.0",
     "nunjucks": "^3.2.4",
     "openai": "^4.77.0"
